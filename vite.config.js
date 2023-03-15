@@ -3,13 +3,15 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver, VantResolver } from 'unplugin-vue-components/resolvers'
-import { createStyleImportPlugin, ElementPlusResolve } from "vite-plugin-style-import";
+import { createStyleImportPlugin, ElementPlusResolve } from "vite-plugin-style-import"
+import eslint from 'vite-plugin-eslint'
 import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
+    /** 此插件按需导入element-plus组件及主题样式 */
     AutoImport({
       resolvers: [
         ElementPlusResolver({ importStyle: 'sass' })
@@ -33,6 +35,8 @@ export default defineConfig({
         },
       ],
     }),
+    // eslint
+    eslint(),
   ],
   resolve: {
     alias: {

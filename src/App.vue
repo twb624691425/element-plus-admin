@@ -10,4 +10,3 @@ import { ref } from 'vue'
 const zIndex = ref(2000)
 const size = ref('small')
 </script>
-
